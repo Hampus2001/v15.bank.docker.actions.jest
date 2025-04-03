@@ -12,7 +12,7 @@ export default function CreateAccountPage() {
     setPassword("");
     setUserName("");
 
-    await fetch("http://13.60.77.158:4000/createAccount", {
+    await fetch("http://13.60.77.158:3001/createAccount", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newAccount),

@@ -4,7 +4,7 @@ import cors from "cors";
 import mysql from "mysql2/promise";
 
 const app = express();
-const PORT = 4000;
+const PORT = 3001;
 
 const pool = mysql.createPool({
   user: "root",
@@ -63,11 +63,13 @@ let session = [];
 // Din kod här. Skriv dina routes:
 app.post("/createAccount", async (req, res) => {
   const { username, password } = req.body;
-  console.log(username, password);
+  console.log("Received request to create account:", username, password);
   try {
-    const sql = "INSERT INTO users (username, password) VALUES (?,?)";
+    const sql = "INSERT INTO users (username, password) VALUES (?, ?)";
     const params = [username, password];
     const result = await query(sql, params);
+
+    console.log("User created:", result);
 
     const user = await getUsers(username, password);
     const userId = user[0].id;
@@ -76,10 +78,11 @@ app.post("/createAccount", async (req, res) => {
     const params2 = [userId, 0, 0];
     const result2 = await query(sql2, params2);
 
-    console.log("users", result, "account", result2);
+    console.log("Account created:", result2);
     res.send("User Created");
   } catch (error) {
-    res.status(500).send("Error creating user");
+    console.error("Error creating user:", error.message || error);
+    res.status(500).send("Error creating user: " + error.message);
   }
 });
 

@@ -17,7 +17,7 @@ export default function loginPage() {
     setPassword("");
     setUserName("");
 
-    const response = await fetch("http://13.60.77.158:4000/login", {
+    const response = await fetch("http://13.60.77.158:3001/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(login),
