@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom"; // Import jest-dom matchers
 import Home from "./page";
 import { useRouter } from "next/navigation";
 
