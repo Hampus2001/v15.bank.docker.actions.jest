@@ -20,11 +20,11 @@ jobs:
           node-version: "20"
 
       - name: Install Dependencies
-        working-directory: ./jest
+        working-directory: ./frontend
         run: npm install
 
       - name: Run Tests
-        working-directory: ./jest
+        working-directory: ./frontend
         run: npm run test:ci
         env:
           CI: true
