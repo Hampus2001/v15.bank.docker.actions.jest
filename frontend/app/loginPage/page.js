@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation"; // Correct import for useRouter
 import { HandleAccountContext } from "@/context/AccountContext";
 
-export default function loginPage() {
+export default function LoginPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();

@@ -1,13 +1,13 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import loginPage from "./page";
+import LoginPage from "./page";
 
 global.fetch = jest.fn(() =>
   Promise.resolve({ ok: true, json: () => Promise.resolve([{ id: 1 }]) })
 );
 
 test("calls login with correct data", async () => {
-  render(<loginPage />);
+  render(<LoginPage />);
 
   // Simulate user input
   fireEvent.change(screen.getByPlaceholderText("username"), {
