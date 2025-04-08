@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <h1>Home</h1>
       <Link href="/createAccount">Create account</Link>
-      <p>deploy test</p>
+      <p>deploy test 2</p>
     </div>
   );
 }
